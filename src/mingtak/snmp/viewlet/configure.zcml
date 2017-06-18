@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="mingjing.content">
+
+    <browser:viewlet
+        name="link_to_report"
+        for="mingtak.snmp.interfaces.IDevice"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        template="template/link_to_report.pt"
+        class=".viewlet.LinkToReport"
+        permission="zope2.View"
+        />
+
+</configure>
+

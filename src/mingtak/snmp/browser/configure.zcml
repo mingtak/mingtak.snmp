@@ -26,6 +26,13 @@
       permission="cmf.ManagePortal"
   />
 
+  <browser:page
+      name="report_view"
+      for="mingtak.snmp.interfaces.IDevice"
+      class=".report.ReportView"
+      permission="zope2.View"
+  />
+
   <!-- Adapter for catalog -->
   <adapter name="snmp_comm" factory=".catalog.snmp_comm_indexer"/>
 
