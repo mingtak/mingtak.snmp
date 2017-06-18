@@ -18,4 +18,15 @@
       directory="static"
       />
 
+  <!-- browser -->
+  <browser:page
+      name="snmp_get"
+      for="*"
+      class=".views.SnmpGet"
+      permission="cmf.ManagePortal"
+  />
+
+  <!-- Adapter for catalog -->
+  <adapter name="snmp_comm" factory=".catalog.snmp_comm_indexer"/>
+
 </configure>
