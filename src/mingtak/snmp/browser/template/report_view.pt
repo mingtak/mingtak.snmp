@@ -25,6 +25,9 @@ portal = api.portal.get()
 
 <hr>
 <h2>${python:view.request.get('start', 1)}日報表</h2>
+<p>主機位置:${context/relDevice/to_object/device_locate}</p>
+
+
 <div id="chart"></div>
 
 
