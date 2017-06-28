@@ -1,1 +1,66 @@
-report view
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingtak.snmp">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+?>
+時間區間:
+<a href="${context/absolute_url}?start=1">日報時</a>
+<a href="${context/absolute_url}?start=3">3日報表</a>
+<a href="${context/absolute_url}?start=7">7日報表</a>
+<a href="${context/absolute_url}?start=30">30日報表</a>
+<a href="${context/absolute_url}?start=90">90日報表</a>
+
+<hr>
+<h2>${python:view.request.get('start', 1)}日報表</h2>
+<div id="chart"></div>
+
+
+<h3 tal:condition="not:view/timeStr">目前無資料</h3>
+<script tal:condition="view/timeStr">
+var chart = c3.generate({
+    data: {
+        x: 'x',
+        xFormat: '%Y-%m-%d %H:%M:%S', // 'xFormat' can be used as custom format of 'x'
+        columns: [
+            ['x', ${view/timeStr}],
+            ['上限值', ${view/upperFloatStr}],
+            ['${context/title}', ${view/floatStr}],
+            ['下限值', ${view/lowerFloatStr}]
+        ]
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d ',
+                values: [${python:view.timeStr.split(',')[1]}, ${python:view.timeStr.split(',')[-1]}]
+            }
+        }
+    }
+});
+</script>
+
+
+
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

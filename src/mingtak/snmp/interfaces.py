@@ -101,3 +101,38 @@ class IOid(Interface):
         default=0.1,
         required=False,
     )
+
+
+class IReport(Interface):
+
+    title = schema.TextLine(
+        title=_(u'Title'),
+        required=True,
+    )
+
+    description = schema.Text(
+        title=_(u'Description'),
+        required=False,
+    )
+
+    relDevice = RelationChoice(
+        title=_(u"Related Device"),
+        source=CatalogSource(Type='Device'),  
+        required=True,
+    )
+
+    relOid = RelationChoice(
+        title=_(u"Related Oid"),
+        source=CatalogSource(Type='Oid'),
+        required=True,
+    )
+
+    upperLimit = schema.Float(
+        title=_(u"Upper Limit"),
+        required=False,
+    )
+
+    lowerLimit = schema.Float(
+        title=_(u"Lower Limit"),
+        required=False,
+    )

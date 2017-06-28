@@ -12,11 +12,18 @@
       />
 
   <!-- Publish static files -->
-  <plone:static
+<!--  <plone:static
       name="mingtak.snmp"
       type="plone"
       directory="static"
       />
+-->
+  <browser:resourceDirectory
+      name="mingtak.snmp"
+      directory="static"
+      />
+
+
 
   <!-- browser -->
   <browser:page
@@ -28,7 +35,7 @@
 
   <browser:page
       name="report_view"
-      for="mingtak.snmp.interfaces.IDevice"
+      for="mingtak.snmp.interfaces.IReport"
       class=".report.ReportView"
       permission="zope2.View"
   />

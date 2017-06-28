@@ -8,3 +8,6 @@ from DateTime import DateTime
 class LinkToReport(base.ViewletBase):
     """  """
 
+class CustomInfoInHeader(base.ViewletBase):
+    """  """
+

@@ -1,0 +1,8 @@
+<?python
+from plone import api
+portal = api.portal.get()
+?>
+
+<link href="${portal/absolute_url}/++resource++mingtak.snmp/c3.min.css" rel="stylesheet">
+<script src="${portal/absolute_url}/++resource++mingtak.snmp/d3.v3.min.js"></script>
+<script src="${portal/absolute_url}/++resource++mingtak.snmp/c3.min.js"></script>

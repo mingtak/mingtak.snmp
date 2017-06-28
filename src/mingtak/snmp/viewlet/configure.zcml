@@ -4,6 +4,7 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="mingjing.content">
 
+<!--
     <browser:viewlet
         name="link_to_report"
         for="mingtak.snmp.interfaces.IDevice"
@@ -12,6 +13,17 @@
         class=".viewlet.LinkToReport"
         permission="zope2.View"
         />
+-->
+    <browser:viewlet
+        name="custom_info_in_header"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IHTTPHeaders"
+        template="template/custom_info_in_header.pt"
+        class=".viewlet.CustomInfoInHeader"
+        permission="zope2.View"
+    />
+
+
 
 </configure>
 

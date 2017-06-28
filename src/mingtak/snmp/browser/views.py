@@ -82,6 +82,7 @@ class SnmpGet(BrowserView):
                 if not snmpData:
                     return
 
+                record_int, record_str = [None, None]
                 if 'Integer' in snmpData[0][1].prettyPrintType():
                     record_int = int(snmpData[0][1])
                     record_str = None
